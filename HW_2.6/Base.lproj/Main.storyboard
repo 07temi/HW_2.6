@@ -16,19 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="ObV-rh-s2L">
                         <barButtonItem key="rightBarButtonItem" image="square.and.pencil" catalog="system" id="CHM-V8-cjR">
                             <connections>
-                                <segue destination="FlP-gu-G2c" kind="presentation" id="g6Q-Qs-zM6"/>
+                                <segue destination="FlP-gu-G2c" kind="presentation" id="doR-Hf-XGU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="959.20000000000005" y="83.208395802098963"/>
+            <point key="canvasLocation" x="945" y="82"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="QGZ-ZL-7GO">
@@ -152,6 +152,17 @@
                                     <action selector="sliderChangeValue:" destination="FlP-gu-G2c" eventType="valueChanged" id="5bp-ii-v3y"/>
                                 </connections>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGT-16-GQw">
+                                <rect key="frame" x="169" y="411" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonPressed" destination="FlP-gu-G2c" eventType="touchUpInside" id="Tgq-1w-eu7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gkK-65-EdV"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
@@ -171,6 +182,7 @@
                         <outlet property="blueLabel" destination="DrJ-uL-FFV" id="OfR-hn-YJZ"/>
                         <outlet property="blueSlider" destination="R77-Df-mw6" id="iKL-kP-4L3"/>
                         <outlet property="colorView" destination="52r-7M-iza" id="pv5-nF-WGA"/>
+                        <outlet property="doneButton" destination="uGT-16-GQw" id="mg6-oR-kFv"/>
                         <outlet property="greenColorSliderTF" destination="v9u-UT-d6i" id="PXs-Rp-fxb"/>
                         <outlet property="greenLabel" destination="e7F-Em-asb" id="v9m-Pj-wiL"/>
                         <outlet property="greenSlider" destination="5Vo-rA-NW4" id="G8q-iQ-MGC"/>
@@ -199,7 +211,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WtT-aQ-Pbg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="83.208395802098963"/>
+            <point key="canvasLocation" x="146" y="83"/>
         </scene>
     </scenes>
     <resources>

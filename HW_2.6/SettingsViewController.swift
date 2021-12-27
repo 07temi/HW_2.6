@@ -7,8 +7,9 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var colorView: UIView!
+    @IBOutlet weak var doneButton: UIButton!
     
     @IBOutlet weak var redSlider: UISlider!
     @IBOutlet weak var greenSlider: UISlider!
@@ -22,7 +23,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var greenLabel: UILabel!
     @IBOutlet weak var blueLabel: UILabel!
     
-    var settingsColor: (CGFloat, CGFloat, CGFloat) = (0, 0, 0)
+    var delegate: SettingsViewControllerDelegate!
 
     
     override func viewDidLoad() {
@@ -73,6 +74,7 @@ class SettingsViewController: UIViewController {
         guard let stringValue = sender.text else { return }
         guard let floatValue = Float (stringValue) else { return }
         
+        
         switch sender {
         case redColorSliderValueTF:
             redSlider.setValue(floatValue, animated: true)
@@ -86,6 +88,11 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    @IBAction func doneButtonPressed() {
+        print  ("\(colorView.backgroundColor)")
+        delegate?.updateColor(setColor: colorView.backgroundColor ?? .red)
+        dismiss(animated: true)
+    }
 }
 
 
@@ -106,5 +113,3 @@ private func getColorValue(forSlider sender: UISlider, FloatValue value: Float) 
 private func formatString(from slider: UISlider) -> String {
     String(format: "%.2f", slider.value)
 }
-
-
