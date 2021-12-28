@@ -15,7 +15,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     
-    @IBOutlet weak var redColorSliderValueTF: UITextField!
+    @IBOutlet weak var redColorSliderTF: UITextField!
     @IBOutlet weak var greenColorSliderTF: UITextField!
     @IBOutlet weak var bluColorSliderTF: UITextField!
     
@@ -24,13 +24,16 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var blueLabel: UILabel!
     
     var delegate: SettingsViewControllerDelegate!
-
+    var colorForView: UIColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         colorView.layer.cornerRadius = 25
-        setViewColor(for: colorView)
-        setValue(for: redLabel, greenLabel, blueLabel)
+        colorView.backgroundColor = colorForView
+        setSliderPosition(for: redSlider, greenSlider, blueSlider)
+        setValueLB(for: redLabel, greenLabel, blueLabel)
+        setValueTF(for: redColorSliderTF, greenColorSliderTF, bluColorSliderTF)
+        
     }
 
     @IBAction func sliderChangeValue(_ sender: UISlider) {
@@ -38,37 +41,16 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         
         switch sender {
         case redSlider:
-            setValue(for: redLabel)
+            setValueLB(for: redLabel)
+            setValueTF(for: redColorSliderTF)
         case greenSlider:
-            setValue(for: greenLabel)
+            setValueLB(for: greenLabel)
+            setValueTF(for: greenColorSliderTF)
         default:
-            setValue(for: blueLabel)
+            setValueLB(for: blueLabel)
+            setValueTF(for: bluColorSliderTF)
         }
     }
-
-    private func setViewColor (for view: UIView) {
-        view.backgroundColor = UIColor(red: CGFloat(redSlider.value),
-                                       green: CGFloat(greenSlider.value),
-                                       blue: CGFloat(blueSlider.value),
-                                       alpha: 1)
-    }
-    
-    
-    private func setValue(for labels: UIView... ) {
-        for label in labels {
-            guard let result = label as? UILabel else { return }
-            switch result {
-            case redLabel:
-                result.text = formatString(from: redSlider)
-            case greenLabel:
-                result.text = formatString(from: greenSlider)
-            default:
-                result.text = formatString(from: blueSlider)
-            }
-            
-        }
-    }
-        
     
     @IBAction func endEditingTF(_ sender: UITextField) {
         guard let stringValue = sender.text else { return }
@@ -76,7 +58,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         
         
         switch sender {
-        case redColorSliderValueTF:
+        case redColorSliderTF:
             redSlider.setValue(floatValue, animated: true)
             sliderChangeValue(redSlider)
         case greenColorSliderTF:
@@ -89,26 +71,64 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func doneButtonPressed() {
-        print  ("\(colorView.backgroundColor)")
         delegate?.updateColor(setColor: colorView.backgroundColor ?? .red)
         dismiss(animated: true)
     }
-}
 
 
-
-//MARK: - Private methods
-
-private func getColorValue(forSlider sender: UISlider, FloatValue value: Float) -> CGFloat {
-    switch sender.tag {
-    case 1:
-        return (CGFloat(sender.value))
-    case 2:
-        return (CGFloat(sender.value))
-    default:
-        return (CGFloat(sender.value))
+    private func setViewColor (for view: UIView) {
+        view.backgroundColor = UIColor(red: CGFloat(redSlider.value),
+                                       green: CGFloat(greenSlider.value),
+                                       blue: CGFloat(blueSlider.value),
+                                       alpha: 1)
+    }
+    
+    
+    private func setValueLB(for labels: UILabel... ) {
+        for label in labels {
+            switch label {
+            case redLabel:
+                label.text = formatString(from: redSlider)
+            case greenLabel:
+                label.text = formatString(from: greenSlider)
+            default:
+                label.text = formatString(from: blueSlider)
+            }
+        }
+    }
+    
+    private func setValueTF(for textFields: UITextField... ) {
+        for textField in textFields {
+            switch textField {
+            case redColorSliderTF:
+                textField.text = formatString(from: redSlider)
+            case greenColorSliderTF:
+                textField.text = formatString(from: greenSlider)
+            default:
+                textField.text = formatString(from: blueSlider)
+            }
+        }
+    }
+    
+    private func setSliderPosition(for sliders: UISlider... ){
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        colorForView.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        for slider in sliders {
+            switch slider {
+            case redSlider:
+                slider.setValue(Float(red), animated: false)
+            case greenSlider:
+                slider.setValue(Float(green), animated: false)
+            default:
+                slider.setValue(Float(blue), animated: false)
+            }
+        }
     }
 }
+//MARK: - Private methods
 
 private func formatString(from slider: UISlider) -> String {
     String(format: "%.2f", slider.value)
