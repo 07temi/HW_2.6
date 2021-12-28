@@ -107,7 +107,7 @@
                                     <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="QEY-m9-lY1">
                                         <rect key="frame" x="51" y="0.0" width="31" height="120"/>
                                         <subviews>
-                                            <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ck-un-Y1D">
+                                            <label autoresizesSubviews="NO" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ck-un-Y1D">
                                                 <rect key="frame" x="0.0" y="0.0" width="31" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
@@ -172,13 +172,13 @@
                             <constraint firstItem="kXd-7f-4x0" firstAttribute="top" secondItem="52r-7M-iza" secondAttribute="bottom" constant="39" id="0Ak-I6-qcs"/>
                             <constraint firstItem="uGT-16-GQw" firstAttribute="top" secondItem="dNp-6f-tHJ" secondAttribute="bottom" constant="37" id="2cl-wK-rxJ"/>
                             <constraint firstItem="52r-7M-iza" firstAttribute="top" secondItem="gkK-65-EdV" secondAttribute="top" constant="30" id="GzH-hQ-ihG"/>
+                            <constraint firstItem="dNp-6f-tHJ" firstAttribute="leading" secondItem="gkK-65-EdV" secondAttribute="leading" constant="124" id="Np3-qw-Sfi"/>
                             <constraint firstItem="YM9-gT-dC7" firstAttribute="top" secondItem="52r-7M-iza" secondAttribute="bottom" constant="31" id="ORW-29-H5q"/>
                             <constraint firstItem="52r-7M-iza" firstAttribute="leading" secondItem="gkK-65-EdV" secondAttribute="leading" constant="20" id="RqL-bf-R9U"/>
                             <constraint firstItem="YM9-gT-dC7" firstAttribute="leading" secondItem="dNp-6f-tHJ" secondAttribute="trailing" constant="13" id="aUX-3H-YcA"/>
                             <constraint firstItem="52r-7M-iza" firstAttribute="centerX" secondItem="QGN-0n-Ql0" secondAttribute="centerX" id="hl9-A9-Zbj"/>
                             <constraint firstItem="gkK-65-EdV" firstAttribute="trailing" secondItem="YM9-gT-dC7" secondAttribute="trailing" constant="20" id="k5b-SA-EDn"/>
                             <constraint firstItem="uGT-16-GQw" firstAttribute="centerX" secondItem="QGN-0n-Ql0" secondAttribute="centerX" id="k80-lm-efF"/>
-                            <constraint firstItem="dNp-6f-tHJ" firstAttribute="leading" secondItem="QEY-m9-lY1" secondAttribute="trailing" constant="22" id="ldz-mC-L7z"/>
                             <constraint firstItem="kXd-7f-4x0" firstAttribute="leading" secondItem="gkK-65-EdV" secondAttribute="leading" constant="20" id="vwj-Iq-3bI"/>
                             <constraint firstItem="gkK-65-EdV" firstAttribute="trailing" secondItem="52r-7M-iza" secondAttribute="trailing" constant="20" id="zMr-ho-s87"/>
                         </constraints>

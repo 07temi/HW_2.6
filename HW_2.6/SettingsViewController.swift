@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, UITextFieldDelegate {
+class SettingsViewController: UIViewController {
     @IBOutlet weak var colorView: UIView!
     @IBOutlet weak var doneButton: UIButton!
     
@@ -54,7 +54,10 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func endEditingTF(_ sender: UITextField) {
         guard let stringValue = sender.text else { return }
-        guard let floatValue = Float (stringValue) else { return }
+        guard let floatValue = Float (stringValue) else {
+            showMessage(title: "Ошибка", message: "Значение должно быть числовым")
+            return
+        }
         
         
         switch sender {
@@ -132,4 +135,14 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
 
 private func formatString(from slider: UISlider) -> String {
     String(format: "%.2f", slider.value)
+}
+
+
+extension SettingsViewController {
+    private func showMessage(title: String, message: String) {
+        let message = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default)
+        message.addAction(okButton)
+        present(message, animated: true)
+    }
 }
