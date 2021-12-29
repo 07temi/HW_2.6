@@ -59,7 +59,6 @@ class SettingsViewController: UIViewController {
             return
         }
         
-        
         switch sender {
         case redColorSliderTF:
             redSlider.setValue(floatValue, animated: true)

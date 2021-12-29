@@ -51,7 +51,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="40" placeholderIntrinsicHeight="34" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.00" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MT9-be-ELd">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="33.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                         <connections>
                                             <action selector="endEditingTF:" destination="FlP-gu-G2c" eventType="editingDidEnd" id="gyp-h4-31y"/>
                                         </connections>
@@ -59,7 +59,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.00" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v9u-UT-d6i">
                                         <rect key="frame" x="0.0" y="53.5" width="40" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                         <connections>
                                             <action selector="endEditingTF:" destination="FlP-gu-G2c" eventType="editingDidEnd" id="hI9-Wb-g37"/>
                                         </connections>
@@ -67,7 +67,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.00" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Sj-ot-8Ag">
                                         <rect key="frame" x="0.0" y="106.5" width="40" height="33.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="decimalPad"/>
                                         <connections>
                                             <action selector="endEditingTF:" destination="FlP-gu-G2c" eventType="editingDidEnd" id="ZPH-0E-L3P"/>
                                         </connections>
